@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\AuthService;
+use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use OpenApi\Attributes as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,9 +16,10 @@ class AuthController extends AbstractController
 {
     private AuthService $authService;
 
-    public function __construct(AuthService $authService)
+    public function __construct(AuthService $authService, JWTTokenManagerInterface $jwt)
     {
         $this->authService = $authService;
+        $this->jwt = $jwt;
     }
 
     #[OA\Post(
@@ -70,12 +72,20 @@ class AuthController extends AbstractController
     #[OA\Tag('Authentication')]
     public function login(Request $request): JsonResponse
     {
-        try {
+        throw new \LogicException('By the firewall.');
+    }
+
+        /*
+         * Ahora manejamos el login mediante el firewall i el LexikJWT
+         *
+         * try {
             $loginData = json_decode($request->getContent(), true);
             $user = $this->authService->login($loginData);
 
+            $token = $this->jwt->create($user);
+
             return new JsonResponse([
-                'status' => 'success',
+                'token' => $token,
                 'user' => $user->getEmail()
             ], 200);
 
@@ -84,8 +94,8 @@ class AuthController extends AbstractController
                 'status' => 'error',
                 'message' => $e->getMessage()
             ], 401);
-        }
-    }
+        }*/
+
 
     #[OA\Post(
         path: "/api/logout",
