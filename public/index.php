@@ -4,7 +4,7 @@ use App\Kernel;
 
 //Dotenv carga las variables de los ficheros .env
 //Lo desactivamos en produccion, porque Railway define las variables globales
-if (($_SERVER['APP_RUNTIME_ENV'] ?? null) === 'prod') {
+if (($_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? null) === 'prod') {
     $_SERVER['APP_RUNTIME_OPTIONS']['disable_dotenv'] = true;
 }
 
