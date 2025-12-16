@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240803165648 extends AbstractMigration
+final class Version20251216170641 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -25,7 +25,7 @@ final class Version20240803165648 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_712052F98545F611 ON mediciones (id_vino)');
         $this->addSql('CREATE TABLE sensores (id SERIAL NOT NULL, id_usuario INT NOT NULL, nombre VARCHAR(50) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_F7493A62FCF8192D ON sensores (id_usuario)');
-        $this->addSql('CREATE TABLE usuario (id SERIAL NOT NULL, nombre VARCHAR(50) NOT NULL, apellido VARCHAR(50) NOT NULL, email VARCHAR(50) NOT NULL, contraseña VARCHAR(50) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE usuario (id SERIAL NOT NULL, nombre VARCHAR(50) NOT NULL, apellido VARCHAR(50) NOT NULL, email VARCHAR(50) NOT NULL, contraseña VARCHAR(255) NOT NULL, roles JSON NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE vino (id SERIAL NOT NULL, id_usuario INT NOT NULL, nombre VARCHAR(50) NOT NULL, año INT NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_E65EA13FCF8192D ON vino (id_usuario)');
         $this->addSql('ALTER TABLE mediciones ADD CONSTRAINT FK_712052F99AB1A25D FOREIGN KEY (id_sensor) REFERENCES sensores (id) NOT DEFERRABLE INITIALLY IMMEDIATE');

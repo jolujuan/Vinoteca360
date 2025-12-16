@@ -2,9 +2,11 @@
 
 use App\Kernel;
 
-$_SERVER['APP_RUNTIME_OPTIONS'] = [
+if (($_SERVER['APP_ENV'] ?? $_ENV['APP_ENV'] ?? null) === 'prod') {
+    $_SERVER['APP_RUNTIME_OPTIONS'] = [
         'disable_dotenv' => true,
-];
+    ];
+}
 
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
