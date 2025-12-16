@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+echo ">>> run-app.sh started"
 
 # Symfony necesita permisos de escritura
 mkdir -p var/cache var/log config/jwt
@@ -17,7 +18,8 @@ if [ -n "${JWT_PUBLIC_PEM:-}" ]; then
 fi
 
 php bin/console cache:clear --no-warmup || true
-php bin/console doctrine:migrations:migrate --no-interaction
+php bin/console doctrine:migrations:status || true
+php bin/console doctrine:migrations:migrate --no-interaction -vvv
 
 # Arranque HTTP
 php -S 0.0.0.0:${PORT} -t public
