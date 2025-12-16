@@ -2,11 +2,11 @@ nelmio_api_doc:
   documentation:
     info:
       title: Vinoteca 360
-      description: You will need to log in when you first access the Swagger documentation (api/doc). Once you're signed in, you won't need to sign in again for API requests. The 'Authorize' button is there, but it has no functionality because we don't use tokens like JWT.
-      version: 1.0.1
+      description: You will need to log in via HTTP the first time you access the Swagger documentation (api/doc). After that, you won’t need to sign in again to make API requests. The “Authorize” button will still be visible, but you’ll only need it if you want to manually enter your JWT token.
+      version: 1.0.2
 
     paths:
-        /api/logout: ~
+      /api/logout: ~
 
     components:
       securitySchemes:

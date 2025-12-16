@@ -34,9 +34,6 @@ class Wines
     #[Groups(['wine_details'])]
     private Collection $measurements;
 
-    /**
-     * @param Collection $measurements
-     */
     public function __construct(Collection $measurements)
     {
         $this->measurements = $measurements;

@@ -1,12 +1,12 @@
-app_login:
+app_api_login:
     path: /api/login
     controller: App\Controller\AuthController::login
     methods: POST
 
-#app_logout:
-#    path: /api/logout
-#    controller: App\Controller\AuthController::logout
-#    methods: POST
+app_api_register:
+    path: /api/register
+    controller: App\Controller\AuthController::register
+    methods: POST
 
 app_api_add_sensor:
     path: /api/sensors
@@ -27,12 +27,3 @@ app_api_add_measurements:
     path: /api/measurements
     controller: App\Controller\MeasurementController::createMeasurement
     methods: POST
-
-
-
-
-
-
-
-
-

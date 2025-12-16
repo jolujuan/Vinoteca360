@@ -76,8 +76,8 @@ class SensorController extends AbstractController
                 )
             ),
             new OA\Response(
-                response: 401,
-                description: "Unauthorized access",
+                response: 403,
+                description: "Unauthorized access, only administrator users",
                 content: new OA\JsonContent(
                     properties: [
                         new OA\Property(property: "status", type: "string", example: "error"),

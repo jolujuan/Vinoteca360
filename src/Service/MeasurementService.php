@@ -6,7 +6,6 @@ use App\Entity\Measurements;
 use App\Repository\SensorRepository;
 use App\Repository\WineRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
