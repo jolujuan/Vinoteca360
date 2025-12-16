@@ -18,6 +18,7 @@ if [ -n "${JWT_PUBLIC_PEM:-}" ]; then
 fi
 
 php bin/console cache:clear --no-warmup || true
+php -m | grep -E "pdo_pgsql|pgsql" || true
 php bin/console doctrine:migrations:status || true
 php bin/console doctrine:migrations:migrate --no-interaction -vvv
 
