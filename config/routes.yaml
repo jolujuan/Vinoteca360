@@ -1,3 +1,7 @@
+api_root:
+    path: /
+    controller: App\Controller\RootRedirectController
+
 app_api_login:
     path: /api/login
     controller: App\Controller\AuthController::login
