@@ -58,9 +58,11 @@ security:
     - { path: ^/api/login, roles: PUBLIC_ACCESS }
     - { path: ^/api/register, roles: PUBLIC_ACCESS }
 
+    # GET - accesible para PUBLIC
+    - { path: ^/api/wines/measurements$, roles: PUBLIC_ACCESS, methods: [ GET ] }
+    -
     # GET - accesible para USER y ADMIN
     - { path: ^/api/sensors$, roles: ROLE_USER, methods: [ GET ] }
-    - { path: ^/api/wines/measurements$, roles: ROLE_USER, methods: [ GET ] }
 
     # POST - solo ADMIN
     - { path: ^/api/sensors$, roles: ROLE_ADMIN, methods: [ POST ] }

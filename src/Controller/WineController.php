@@ -19,7 +19,6 @@ class WineController extends AbstractController
         $this->wineService = $wineService;
     }
 
-    #[IsGranted('ROLE_USER')]
     #[OA\Get(
         path: "/api/wines/measurements",
         description: "Returns a list of all wine measurements available in the database.",
