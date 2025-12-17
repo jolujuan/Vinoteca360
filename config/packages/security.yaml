@@ -60,7 +60,7 @@ security:
 
     # GET - accesible para PUBLIC
     - { path: ^/api/wines/measurements$, roles: PUBLIC_ACCESS, methods: [ GET ] }
-    -
+
     # GET - accesible para USER y ADMIN
     - { path: ^/api/sensors$, roles: ROLE_USER, methods: [ GET ] }
 
